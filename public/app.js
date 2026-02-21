@@ -90,7 +90,7 @@ function initAuthUI() {
   }
 
   // Session-aware buttons
-  supabase.auth.getSession().then(({ data }) => {
+  client.auth.getSession().then(({ data }) => {
     const session = data.session;
     if (btnLogout) btnLogout.classList.toggle("hidden", !session);
     if (btnLogin) btnLogin.classList.toggle("hidden", !!session);
@@ -115,7 +115,7 @@ function initAuthUI() {
           }
 
           // 1) Create auth user
-          const { data, error } = await supabase.auth.signUp({ email: em, password: pw });
+          const { data, error } = await client.auth.signUp({ email: em, password: pw });
           if (error) throw error;
 
           // 2) Create profile row (requires auth.uid() = id policy)
@@ -142,7 +142,7 @@ function initAuthUI() {
 
           msg.textContent = "Account created. If email confirmation is enabled, confirm then log in.";
         } else {
-          const { error } = await supabase.auth.signInWithPassword({ email: em, password: pw });
+          const { error } = await client.auth.signInWithPassword({ email: em, password: pw });
           if (error) throw error;
           msg.textContent = "Logged in.";
           setTimeout(() => location.reload(), 400);
@@ -215,7 +215,7 @@ async function loadLeaderboard() {
   const el = document.getElementById("leaderboard");
   if (!el) return;
 
-  const { data, error } = await supabase
+  const { data, error } = await client
     .from("profiles")
     .select("username,reputation,level")
     .order("reputation", { ascending: false })
@@ -268,7 +268,7 @@ async function loadStoryPage() {
   const velocityText = document.getElementById("velocityText");
 
   // Fetch story
-  const { data: story, error: sErr } = await supabase
+  const { data: story, error: sErr } = await client
     .from("stories")
     .select("*")
     .eq("slug", slug)
@@ -280,7 +280,7 @@ async function loadStoryPage() {
   }
 
   // Opinions
-  const { data: ops } = await supabase
+  const { data: ops } = await client
     .from("opinions")
     .select("side,body")
     .eq("story_id", story.id);
@@ -310,7 +310,7 @@ async function loadStoryPage() {
   velocityText.textContent = `Momentum: ${vel.toFixed(1)}`;
 
   // Auth status
-  const { data: sessData } = await supabase.auth.getSession();
+  const { data: sessData } = await client.auth.getSession();
   const session = sessData.session;
 
   const isClosed = story.status !== "active";
@@ -332,11 +332,11 @@ async function loadStoryPage() {
   await renderComments(story.id);
 
   if (commentsChannel) {
-    supabase.removeChannel(commentsChannel);
+    client.removeChannel(commentsChannel);
     commentsChannel = null;
   }
 
-  commentsChannel = supabase
+  commentsChannel = client
     .channel("comments-live")
     .on(
       "postgres_changes",
@@ -404,7 +404,7 @@ function hookPostComment(storyId) {
       if (!user) throw new Error("Not logged in.");
 
       // Insert comment
-      const { error } = await supabase.from("comments").insert({
+      const { error } = await client.from("comments").insert({
         story_id: storyId,
         author_id: user.id,
         side,
@@ -439,7 +439,7 @@ async function loadArchive() {
   if (!list || !fy || !fc || !btn) return;
 
   // Populate year dropdown from story dates
-  const { data: yearsData } = await supabase
+  const { data: yearsData } = await client
     .from("stories")
     .select("published_at")
     .order("published_at", { ascending: false })
@@ -455,7 +455,7 @@ async function loadArchive() {
   async function run() {
     list.innerHTML = `<div class="muted">Loading…</div>`;
 
-    let q = supabase
+    let q = client
       .from("stories")
       .select("id,title,slug,category,heated_score,velocity_score,status,published_at")
       .in("status", ["frozen","archived"])
@@ -500,7 +500,7 @@ function initNewsletter() {
     msg.textContent = "Saving…";
     const val = email.value.trim().toLowerCase();
 
-    const { error } = await supabase.from("subscribers").insert({ email: val });
+    const { error } = await client.from("subscribers").insert({ email: val });
     if (error) {
       msg.textContent = error.message.includes("duplicate") ? "Already subscribed." : "Could not subscribe.";
       return;
