@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About • The Argument Room UK</title>
+  <meta name="description" content="A structured arena for contested UK issues." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead__inner">
+      <div class="brand">
+        <div class="brand__title">THE ARGUMENT ROOM <span class="uk">UK</span></div>
+        <div class="brand__tagline">A structured arena for contested public issues.</div>
+      </div>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="archive.html" class="nav__link">Archive</a>
+        <a href="about.html" class="nav__link nav__link--active">About</a>
+      </nav>
+      <div class="masthead__actions">
+        <button id="btnLogin" class="btn btn--ghost">Log in</button>
+        <button id="btnSignup" class="btn">Sign up</button>
+      </div>
+    </div>
+    <div class="masthead__accent"></div>
+  </header>
+
+  <main class="container">
+    <section class="panel prose">
+      <h1>About</h1>
+      <p><strong>The Argument Room UK</strong> is a structured arena for UK debates. Each issue is presented with two clearly opposed positions. The platform is designed for reasoning, not rage.</p>
+      <ul>
+        <li><strong>Two positions</strong> on the same issue — presented side by side.</li>
+        <li><strong>Registered users only</strong> — no anonymous posting.</li>
+        <li><strong>Reputation</strong> rewards consistent, high-quality contributions.</li>
+        <li><strong>Debate lifecycle</strong> — active debates close, then enter a searchable archive.</li>
+      </ul>
+      <p>Platform voice is neutral. Users are free to hold any view, but must argue ideas, not attack people.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© The Argument Room UK</span>
+      <span class="footer__links">
+        <a href="editorial.html">Editorial Standards</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="moderation.html">Moderation Policy</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+  <script>initAuthUI();</script>
+</body>
+</html>
