@@ -1,7 +1,7 @@
 // =======================
 // 1) CONFIG: PUT YOUR KEYS HERE
 // =======================
-const SUPABASE_URL = "https://sretysfdmwhdownyvcvey.supabase.co";
+const SUPABASE_URL = "https://sretysfdmwhdownycvey.supabase.co";
 const SUPABASE_KEY = "sb_publishable_v1ZzsxEj0iTGWG2SLQuMTw_Qy4ux91a";
 
 // Supabase client (use CDN global)
