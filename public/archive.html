@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Archive • The Argument Room UK</title>
+  <meta name="description" content="Archived debates: closed, indexed, and filterable." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead__inner">
+      <div class="brand">
+        <div class="brand__title">THE ARGUMENT ROOM <span class="uk">UK</span></div>
+        <div class="brand__tagline">Closed debates. Permanent record.</div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="archive.html" class="nav__link nav__link--active">Archive</a>
+        <a href="about.html" class="nav__link">About</a>
+      </nav>
+
+      <div class="masthead__actions">
+        <button id="btnLogin" class="btn btn--ghost">Log in</button>
+        <button id="btnSignup" class="btn">Sign up</button>
+      </div>
+    </div>
+    <div class="masthead__accent"></div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="panel__head">
+        <h2>📜 Archive Hub</h2>
+        <div class="panel__hint">Filter by category and year. Comments are frozen.</div>
+      </div>
+
+      <div class="filters">
+        <select id="filterCategory">
+          <option value="">All categories</option>
+          <option value="Economy">Economy</option>
+          <option value="Culture">Culture</option>
+          <option value="Government">Government</option>
+        </select>
+
+        <select id="filterYear">
+          <option value="">All years</option>
+        </select>
+
+        <button id="filterBtn" class="btn btn--ghost">Apply</button>
+      </div>
+
+      <div id="archiveList" class="list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© The Argument Room UK</span>
+      <span class="footer__links">
+        <a href="editorial.html">Editorial Standards</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="moderation.html">Moderation Policy</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+  <script>
+    initAuthUI();
+    loadArchive();
+  </script>
+</body>
+</html>
