@@ -1,11 +1,11 @@
 // =======================
 // 1) CONFIG: PUT YOUR KEYS HERE
 // =======================
-const SUPABASE_URL = "https://sretysfdmwhdownycvey.supabase.co";
-const SUPABASE_KEY = "sb_publishable_v1ZzsxEjo1TGWG2SLQUmTw_Qy4ux9la";
+const SUPABASE_URL = "https://sretysfdmwhdowrvcvey.supabase.co";
+const SUPABASE_KEY = "sb_publishable_v1ZzsxEj0iTGWG2SLQuMTw_Qy4ux91a";
 
-// Supabase client
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+// Supabase client (use CDN global)
+const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // =======================
 // 2) HELPERS
