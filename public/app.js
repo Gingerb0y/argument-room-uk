@@ -84,7 +84,7 @@ function initAuthUI() {
   // Logout
   if (btnLogout) {
     btnLogout.onclick = async () => {
-      await supabase.auth.signOut();
+      await client.auth.signOut();
       location.reload();
     };
   }
@@ -163,7 +163,7 @@ async function loadHomepage() {
   if (!elEsc || !elFlash) return;
 
   // Escalating Now = highest velocity among active debates
-  const { data: esc, error: escErr } = await supabase
+  const { data: esc, error: escErr } = await client
     .from("stories")
     .select("id,title,slug,category,heated_score,velocity_score,status,published_at")
     .eq("status", "active")
@@ -177,7 +177,7 @@ async function loadHomepage() {
   }
 
   // Flashpoints = highest heat (active first; if empty, show frozen/archived too)
-  const { data: flash, error: flashErr } = await supabase
+  const { data: flash, error: flashErr } = await client
     .from("stories")
     .select("id,title,slug,category,heated_score,velocity_score,status,published_at")
     .order("heated_score", { ascending: false })
@@ -350,7 +350,7 @@ async function renderComments(storyId) {
   const list = document.getElementById("commentsList");
   if (!list) return;
 
-  const { data, error } = await supabase
+  const { data, error } = await client
     .from("comments")
     .select("id,side,content,created_at,profiles(username,level)")
     .eq("story_id", storyId)
@@ -399,7 +399,7 @@ function hookPostComment(storyId) {
     msg.textContent = "";
 
     try {
-      const { data: sessData } = await supabase.auth.getSession();
+      const { data: sessData } = await client.auth.getSession();
       const user = sessData.session?.user;
       if (!user) throw new Error("Not logged in.");
 
