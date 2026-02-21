@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Editorial Standards • The Argument Room UK</title>
+  <meta name="description" content="Rules for argument quality and conduct." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead__inner">
+      <div class="brand">
+        <div class="brand__title">THE ARGUMENT ROOM <span class="uk">UK</span></div>
+        <div class="brand__tagline">Editorial Standards</div>
+      </div>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="archive.html" class="nav__link">Archive</a>
+        <a href="about.html" class="nav__link">About</a>
+      </nav>
+      <div class="masthead__actions">
+        <button id="btnLogin" class="btn btn--ghost">Log in</button>
+        <button id="btnSignup" class="btn">Sign up</button>
+      </div>
+    </div>
+    <div class="masthead__accent"></div>
+  </header>
+
+  <main class="container">
+    <section class="panel prose">
+      <h1>Editorial Standards</h1>
+      <p>The platform exists to test arguments. To protect debate quality:</p>
+      <ul>
+        <li><strong>Attack ideas, not people.</strong> Personal abuse is not allowed.</li>
+        <li><strong>No incitement or threats.</strong></li>
+        <li><strong>No doxxing</strong> or sharing private information.</li>
+        <li><strong>Stay on topic.</strong> Argue the issue being debated.</li>
+        <li><strong>Reasoning over slogans.</strong> Unsupported claims may be challenged or moderated.</li>
+      </ul>
+      <p>Two positions are presented for each issue. Those positions may be created using a mix of human and AI assistance, and are intended as structured prompts for debate — not as endorsements.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© The Argument Room UK</span>
+      <span class="footer__links">
+        <a href="methodology.html">Methodology</a>
+        <a href="moderation.html">Moderation Policy</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+  <script>initAuthUI();</script>
+</body>
+</html>
