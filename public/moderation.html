@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Methodology • The Argument Room UK</title>
+  <meta name="description" content="How momentum, heat, and debate closure work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead__inner">
+      <div class="brand">
+        <div class="brand__title">THE ARGUMENT ROOM <span class="uk">UK</span></div>
+        <div class="brand__tagline">Methodology</div>
+      </div>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="archive.html" class="nav__link">Archive</a>
+        <a href="about.html" class="nav__link">About</a>
+      </nav>
+      <div class="masthead__actions">
+        <button id="btnLogin" class="btn btn--ghost">Log in</button>
+        <button id="btnSignup" class="btn">Sign up</button>
+      </div>
+    </div>
+    <div class="masthead__accent"></div>
+  </header>
+
+  <main class="container">
+    <section class="panel prose">
+      <h1>Methodology</h1>
+      <h3>Momentum (Velocity)</h3>
+      <p>Momentum reflects recent activity. It is driven by new comments within a rolling time window and decays frequently so the homepage stays fresh.</p>
+
+      <h3>Heat</h3>
+      <p>Heat reflects intensity. It increases with participation and reply depth. Heat is slower-moving than momentum.</p>
+
+      <h3>Debate lifecycle</h3>
+      <ul>
+        <li><strong>Active</strong>: open to comments.</li>
+        <li><strong>Frozen</strong>: comments closed to preserve the record.</li>
+        <li><strong>Archived</strong>: searchable, indexable, permanently closed.</li>
+      </ul>
+      <p>Lifecycle timing is automated and may be adjusted as the platform evolves.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© The Argument Room UK</span>
+      <span class="footer__links">
+        <a href="editorial.html">Editorial Standards</a>
+        <a href="moderation.html">Moderation Policy</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+  <script>initAuthUI();</script>
+</body>
+</html>
