@@ -2,7 +2,7 @@
 // 1) CONFIG: PUT YOUR KEYS HERE
 // =======================
 const SUPABASE_URL = "https://sretysfdmwhdownycvey.supabase.co";
-const SUPABASE_KEY = "sb_publishable_v1ZzsxEj0iTGWG2SLQuMTw_Qy4ux91a";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNyZXR5c2ZkbXdoZG93bnljdmV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1ODI3MzgsImV4cCI6MjA4NzE1ODczOH0.xrq9ntSA80Q7_4_HA2Geuwe6X63JSb0VSWGwOahTKNI";
 
 // Supabase client (use CDN global)
 const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
