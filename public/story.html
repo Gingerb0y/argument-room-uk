@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Argument Room UK</title>
+  <meta name="description" content="Where UK arguments are tested. Two positions. One arena." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead__inner">
+      <div class="brand">
+        <div class="brand__title">THE ARGUMENT ROOM <span class="uk">UK</span></div>
+        <div class="brand__tagline">Where UK arguments are tested.</div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="nav__link nav__link--active">Home</a>
+        <a href="archive.html" class="nav__link">Archive</a>
+        <a href="about.html" class="nav__link">About</a>
+      </nav>
+
+      <div class="masthead__actions">
+        <button id="btnLogin" class="btn btn--ghost">Log in</button>
+        <button id="btnSignup" class="btn">Sign up</button>
+      </div>
+    </div>
+    <div class="masthead__accent"></div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="panel__head">
+        <h2>⚡ Escalating Now</h2>
+        <div class="panel__hint">Sorted by momentum (velocity).</div>
+      </div>
+      <div id="escalatingList" class="list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__head">
+        <h2>🔥 Flashpoints</h2>
+        <div class="panel__hint">Highest heated score.</div>
+      </div>
+      <div id="flashpointsList" class="list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__head">
+        <h2>🏆 Top Contributors</h2>
+        <div class="panel__hint">Reputation leaderboard.</div>
+      </div>
+      <div id="leaderboard" class="leaderboard"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel__head">
+        <h2>Newsletter</h2>
+        <div class="panel__hint">One email. Daily digest (automated later).</div>
+      </div>
+      <form id="newsletterForm" class="newsletter">
+        <input id="newsletterEmail" type="email" placeholder="you@example.com" required />
+        <button class="btn" type="submit">Subscribe</button>
+        <div id="newsletterMsg" class="muted"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© The Argument Room UK</span>
+      <span class="footer__links">
+        <a href="editorial.html">Editorial Standards</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="moderation.html">Moderation Policy</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Auth Modal -->
+  <div id="authModal" class="modal hidden" aria-hidden="true">
+    <div class="modal__card">
+      <div class="modal__top">
+        <div id="authTitle" class="modal__title">Log in</div>
+        <button id="authClose" class="btn btn--ghost">✕</button>
+      </div>
+
+      <form id="authForm" class="auth">
+        <label>Email</label>
+        <input id="authEmail" type="email" placeholder="you@example.com" required />
+        <label>Password</label>
+        <input id="authPassword" type="password" placeholder="••••••••" required />
+        <label id="usernameLabel" class="hidden">Username</label>
+        <input id="authUsername" class="hidden" type="text" placeholder="e.g. DalkeithDebater" />
+
+        <button id="authSubmit" class="btn" type="submit">Continue</button>
+        <div id="authMsg" class="muted"></div>
+
+        <div class="auth__switch">
+          <a href="#" id="switchMode">Need an account? Sign up</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+  <script>
+    initAuthUI();
+    loadHomepage();
+    loadLeaderboard();
+    initNewsletter();
+  </script>
+</body>
+</html>
