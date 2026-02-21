@@ -127,7 +127,7 @@ function initAuthUI() {
             return;
           }
 
-          const { error: pErr } = await supabase.from("profiles").insert({
+          const { error: pErr } = await client.from("profiles").insert({
             id: user.id,
             username: un,
             reputation: 0,
