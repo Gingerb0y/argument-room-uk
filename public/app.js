@@ -5,7 +5,7 @@ const SUPABASE_URL = "https://sretysfdmwhdowrvcvey.supabase.co";
 const SUPABASE_KEY = "sb_publishable_v1ZzsxEj0iTGWG2SLQuMTw_Qy4ux91a";
 
 // Supabase client (use CDN global)
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // =======================
 // 2) HELPERS
