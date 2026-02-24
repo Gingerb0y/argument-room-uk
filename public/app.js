@@ -267,17 +267,18 @@ async function loadStoryPage() {
   const velocityFill = document.getElementById("velocityFill");
   const velocityText = document.getElementById("velocityText");
 
-  // Fetch story
-  const { data: story, error: sErr } = await client
-    .from("stories")
-    .select("*")
-    .eq("slug", slug)
-    .single();
+  // Fetch story (by slug)
+const { data: story, error: sErr } = await client
+  .from("stories")
+  .select("id,title,slug,category,status,published_at,heated_score,velocity_score,opinion_a,opinion_b")
+  .eq("slug", slug)
+  .single();
 
-  if (sErr || !story) {
-    if (titleEl) titleEl.textContent = "Debate not found.";
-    return;
-  }
+if (sErr) {
+  console.error("Story load error:", sErr);
+  titleEl.textContent = "Story not found";
+  return;
+}
 
   // Opinions
   const { data: ops } = await client
